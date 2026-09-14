@@ -97,15 +97,19 @@
         };
 
         try {
-            await fetch('n8n.techmatic.ai/webhook/contact-form', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-            btn.innerText = 'Message Sent!';
-            document.getElementById('contactForm').reset();
-        } catch (error) {
-            btn.innerText = 'Error - Try Again';
-        }
+        const response = await fetch('https://n8n.techmatic.ai/webhook/contact-form', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        
+        // This new line catches 404s and forces the catch block to run
+        if (!response.ok) throw new Error('Server rejected request');
+
+        btn.innerText = 'Message Sent!';
+        document.getElementById('contactForm').reset();
+    } catch (error) {
+        btn.innerText = 'Error - Try Again';
+    }
     });
 </script>
