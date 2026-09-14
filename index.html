@@ -97,7 +97,7 @@
         };
 
         try {
-            await fetch('https://n8n.techmatic.ai/webhook/contact-form', {
+            await fetch('n8n.techmatic.ai/webhook/contact-form', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
