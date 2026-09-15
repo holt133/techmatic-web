@@ -1,53 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" href="style.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - The Missing Word</title>
-    <style>
-        /* --- 1. BASE & NAVBAR STYLES --- */
-        body { font-family: system-ui, -apple-system, sans-serif; background-color: #0f172a; color: #f8fafc; margin: 0; }
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background-color: #0f172a; border-bottom: 1px solid #334155; }
-        .nav-logo { height: 45px; width: auto; display: block; }
-        .nav-links { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; align-items: center; }
-        .nav-links a { color: #f8fafc; text-decoration: none; font-weight: 500; font-size: 1rem; transition: color 0.2s ease; }
-        .nav-links a:hover { color: #38bdf8; }
-        
-        .dropdown { position: relative; display: inline-block; }
-        .dropdown-content { display: none; position: absolute; background-color: #1e293b; min-width: 220px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1; border-radius: 0.5rem; margin-top: 1rem; overflow: hidden; text-align: left; }
-        .dropdown-content a { padding: 12px 16px; display: block; border-bottom: 1px solid #334155; }
-        .dropdown-content a:last-child { border-bottom: none; }
-        .dropdown-content a:hover { background-color: #334155; }
-        .dropdown:hover .dropdown-content { display: block; }
-
-        /* --- 2. LEGAL DOCUMENT STYLES --- */
-        .legal-content { 
-            max-width: 800px; 
-            margin: 4rem auto; 
-            padding: 0 2rem; 
-            text-align: left; 
-            line-height: 1.8; 
-            color: #cbd5e1;
-        }
-        .legal-content h1 { 
-            color: #38bdf8; 
-            font-size: 2.5rem; 
-            margin-bottom: 2rem; 
-            text-align: center;
-        }
-        .legal-content h2 { 
-            color: #f8fafc; 
-            margin-top: 2.5rem; 
-            border-bottom: 1px solid #334155; 
-            padding-bottom: 0.5rem;
-        }
-        .legal-content a { color: #38bdf8; text-decoration: none; }
-        .legal-content a:hover { text-decoration: underline; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- --- 3. NAVBAR HTML --- -->
+    <!-- --- NAVBAR HTML --- -->
     <nav class="navbar">
         <a href="index.html" class="logo-link">
             <img src="https://images.techmatic.ai/techmatic-logo-tagline-dark-enhanced.png" alt="Techmatic AI Logo" class="nav-logo">
@@ -67,27 +27,47 @@
         </ul>
     </nav>
 
-    <!-- --- 4. LEGAL TEXT CONTENT --- -->
+    <!-- --- LEGAL TEXT CONTENT --- -->
     <div class="legal-content">
         <h1>Privacy Policy</h1>
-        <p><strong>Last Updated:</strong> September 15, 2026</p>
+        <p><strong>Last Updated:</strong> September 2, 2026</p>
         
-        <p>Welcome to The Missing Word. Techmatic AI is committed to protecting your privacy. This policy outlines how we handle your data when you use our Android application.</p>
+        <p>This Privacy Policy explains how The Missing Word collects, uses, and protects your information when you use our mobile application.</p>
 
         <h2>1. Information We Collect</h2>
-        <p>To provide secure user profiles and save your game progression, we collect account credentials via Firebase authentication. This includes the email address you provide upon registration.</p>
+        <ul>
+            <li><strong>Account Information:</strong> When you register to access Prize Packs, we collect your email address and securely store your authentication credentials.</li>
+            <li><strong>Gameplay Data:</strong> We record your puzzle completion status (specifically for Prize Packs) to manage entries into the £100 prize draw.</li>
+            <li><strong>Device Information:</strong> We may collect basic, non-personally identifiable analytics regarding app performance and crash reports to improve the user experience.</li>
+        </ul>
 
         <h2>2. How We Use Your Data</h2>
-        <p>Your data is used strictly to manage your account, secure your gameplay data, and administer the prize pack system. We do not sell your personal data to third parties.</p>
+        <ul>
+            <li>To provide and maintain the core functionality of the app.</li>
+            <li>To manage user authentication and account security.</li>
+            <li>To track valid entries and contact winners for the £100 prize draw.</li>
+            <li>To improve our puzzle offerings and app stability.</li>
+        </ul>
 
-        <h2>3. Third-Party Services</h2>
-        <p>The app utilizes third-party services that may collect information used to identify you. Specifically, we use Google Play Services and Firebase for backend authentication and database infrastructure.</p>
-        
-        <h2>4. Data Deletion</h2>
-        <p>You have the right to request the deletion of your account and associated game data at any time. To request data deletion, please contact us at the email below.</p>
+        <h2>3. Third-Party Services and Data Processors</h2>
+        <p>To provide this service, we utilize secure third-party infrastructure. Your data is processed and stored using the following services:</p>
+        <ul>
+            <li><strong>Firebase Authentication:</strong> Used to securely manage your login credentials and email address.</li>
+            <li><strong>Hetzner & Coolify:</strong> Our self-hosted backend infrastructure processes gameplay data and prize entries.</li>
+            <li><strong>n8n & Google Workspace:</strong> We use self-hosted automation workflows to securely log valid prize draw entries into a restricted Google Sheet ledger.</li>
+        </ul>
+        <p>We do not sell, trade, or rent your personal data to third parties for marketing purposes.</p>
 
-        <h2>5. Contact Us</h2>
-        <p>If you have any questions about this Privacy Policy, please contact us at: <a href="mailto:chrisholt133@gmail.com">chrisholt133@gmail.com</a>.</p>
+        <h2>4. Data Security</h2>
+        <p>We implement industry-standard security measures, including secure HTTPS API connections and encrypted database storage, to protect your personal information from unauthorized access, alteration, or destruction.</p>
+
+        <h2>5. Your Data Rights</h2>
+        <p>You have the right to access, update, or delete the personal information we hold about you. If you wish to delete your account or have your email removed from our prize draw ledger, please contact us. Note that deleting your account will forfeit any pending prize draw entries.</p>
+
+        <h2>6. Contact Us</h2>
+        <p>If you have any questions or concerns about this Privacy Policy or how your data is handled, please contact:</p>
+        <p><strong>The Missing Word App:</strong><br>
+        Email: <a href="mailto:missing.word@techmatic.ai">missing.word@techmatic.ai</a></p>
     </div>
 </body>
 </html>

@@ -1,53 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" href="style.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Complaints Procedure - The Missing Word</title>
-    <style>
-        /* --- 1. BASE & NAVBAR STYLES --- */
-        body { font-family: system-ui, -apple-system, sans-serif; background-color: #0f172a; color: #f8fafc; margin: 0; }
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background-color: #0f172a; border-bottom: 1px solid #334155; }
-        .nav-logo { height: 45px; width: auto; display: block; }
-        .nav-links { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; align-items: center; }
-        .nav-links a { color: #f8fafc; text-decoration: none; font-weight: 500; font-size: 1rem; transition: color 0.2s ease; }
-        .nav-links a:hover { color: #38bdf8; }
-        
-        .dropdown { position: relative; display: inline-block; }
-        .dropdown-content { display: none; position: absolute; background-color: #1e293b; min-width: 220px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1; border-radius: 0.5rem; margin-top: 1rem; overflow: hidden; text-align: left; }
-        .dropdown-content a { padding: 12px 16px; display: block; border-bottom: 1px solid #334155; }
-        .dropdown-content a:last-child { border-bottom: none; }
-        .dropdown-content a:hover { background-color: #334155; }
-        .dropdown:hover .dropdown-content { display: block; }
-
-        /* --- 2. LEGAL DOCUMENT STYLES --- */
-        .legal-content { 
-            max-width: 800px; 
-            margin: 4rem auto; 
-            padding: 0 2rem; 
-            text-align: left; 
-            line-height: 1.8; 
-            color: #cbd5e1;
-        }
-        .legal-content h1 { 
-            color: #38bdf8; 
-            font-size: 2.5rem; 
-            margin-bottom: 2rem; 
-            text-align: center;
-        }
-        .legal-content h2 { 
-            color: #f8fafc; 
-            margin-top: 2.5rem; 
-            border-bottom: 1px solid #334155; 
-            padding-bottom: 0.5rem;
-        }
-        .legal-content a { color: #38bdf8; text-decoration: none; }
-        .legal-content a:hover { text-decoration: underline; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- --- 3. NAVBAR HTML --- -->
+    <!-- --- NAVBAR HTML --- -->
     <nav class="navbar">
         <a href="index.html" class="logo-link">
             <img src="https://images.techmatic.ai/techmatic-logo-tagline-dark-enhanced.png" alt="Techmatic AI Logo" class="nav-logo">
@@ -67,27 +27,31 @@
         </ul>
     </nav>
 
-    <!-- --- 4. LEGAL TEXT CONTENT --- -->
+    <!-- --- LEGAL TEXT CONTENT --- -->
     <div class="legal-content">
         <h1>Complaints Procedure</h1>
-        <p><strong>Last Updated:</strong> September 15, 2026</p>
         
-        <p>Welcome to The Missing Word. Techmatic AI is committed to protecting your privacy. This policy outlines how we handle your data when you use our Android application.</p>
-
-        <h2>1. Information We Collect</h2>
-        <p>To provide secure user profiles and save your game progression, we collect account credentials via Firebase authentication. This includes the email address you provide upon registration.</p>
-
-        <h2>2. How We Use Your Data</h2>
-        <p>Your data is used strictly to manage your account, secure your gameplay data, and administer the prize pack system. We do not sell your personal data to third parties.</p>
-
-        <h2>3. Third-Party Services</h2>
-        <p>The app utilizes third-party services that may collect information used to identify you. Specifically, we use Google Play Services and Firebase for backend authentication and database infrastructure.</p>
+        <h2>1. How to Submit a Complaint</h2>
+        <p>If you experience any issues regarding gameplay, technical glitches, or prize distribution, you have the right to lodge a formal complaint.</p>
         
-        <h2>4. Data Deletion</h2>
-        <p>You have the right to request the deletion of your account and associated game data at any time. To request data deletion, please contact us at the email below.</p>
+        <p><strong>Contact method:</strong> Email our support team at <a href="mailto:chrisholt133@gmail.com">chrisholt133@gmail.com</a><br>
+        <strong>Subject line:</strong> "Official Complaint: [Your Name]", to ensure priority routing.</p>
+        
+        <p><strong>Required information</strong>, to help us investigate quickly:</p>
+        <ul>
+            <li>Your email address used to register your account in the Missing Word app.</li>
+            <li>A detailed description of the issue or dispute.</li>
+            <li>The exact date and time the issue occurred.</li>
+            <li>Supporting evidence, such as screenshots of the error or puzzle state (strongly recommended).</li>
+        </ul>
 
-        <h2>5. Contact Us</h2>
-        <p>If you have any questions about this Privacy Policy, please contact us at: <a href="mailto:chrisholt133@gmail.com">chrisholt133@gmail.com</a>.</p>
+        <h2>2. Timeline and Resolution Process</h2>
+        <ul>
+            <li><strong>Acknowledgment:</strong> Upon receipt of your complaint email, an automated confirmation will be sent to verify your message has entered our support queue.</li>
+            <li><strong>Investigation:</strong> We will review your case, cross-referencing your account data and puzzle completion records held in our backend systems.</li>
+            <li><strong>Resolution:</strong> We aim to provide a full response and resolution plan within 3 to 5 business days of the acknowledgment email. If we are unable to resolve your complaint within this timeframe, we will notify you that your case has been closed.</li>
+            <li><strong>Decisions final internally:</strong> Decisions regarding puzzle verification and prize eligibility made following our internal investigation are final as far as our internal process is concerned. This does not affect your statutory rights. If you remain unsatisfied, you may refer your complaint to Trading Standards or, where applicable, the Advertising Standards Authority.</li>
+        </ul>
     </div>
 </body>
 </html>
