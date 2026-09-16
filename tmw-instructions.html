@@ -1,53 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" href="style.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Instructions - The Missing Word</title>
-    <style>
-        /* --- 1. BASE & NAVBAR STYLES --- */
-        body { font-family: system-ui, -apple-system, sans-serif; background-color: #0f172a; color: #f8fafc; margin: 0; }
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background-color: #0f172a; border-bottom: 1px solid #334155; }
-        .nav-logo { height: 45px; width: auto; display: block; }
-        .nav-links { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; align-items: center; }
-        .nav-links a { color: #f8fafc; text-decoration: none; font-weight: 500; font-size: 1rem; transition: color 0.2s ease; }
-        .nav-links a:hover { color: #38bdf8; }
-        
-        .dropdown { position: relative; display: inline-block; }
-        .dropdown-content { display: none; position: absolute; background-color: #1e293b; min-width: 220px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1; border-radius: 0.5rem; margin-top: 1rem; overflow: hidden; text-align: left; }
-        .dropdown-content a { padding: 12px 16px; display: block; border-bottom: 1px solid #334155; }
-        .dropdown-content a:last-child { border-bottom: none; }
-        .dropdown-content a:hover { background-color: #334155; }
-        .dropdown:hover .dropdown-content { display: block; }
-
-        /* --- 2. LEGAL DOCUMENT STYLES --- */
-        .legal-content { 
-            max-width: 800px; 
-            margin: 4rem auto; 
-            padding: 0 2rem; 
-            text-align: left; 
-            line-height: 1.8; 
-            color: #cbd5e1;
-        }
-        .legal-content h1 { 
-            color: #38bdf8; 
-            font-size: 2.5rem; 
-            margin-bottom: 2rem; 
-            text-align: center;
-        }
-        .legal-content h2 { 
-            color: #f8fafc; 
-            margin-top: 2.5rem; 
-            border-bottom: 1px solid #334155; 
-            padding-bottom: 0.5rem;
-        }
-        .legal-content a { color: #38bdf8; text-decoration: none; }
-        .legal-content a:hover { text-decoration: underline; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- --- 3. NAVBAR HTML --- -->
+    <!-- --- NAVBAR HTML --- -->
     <nav class="navbar">
         <a href="index.html" class="logo-link">
             <img src="https://images.techmatic.ai/techmatic-logo-tagline-dark-enhanced.png" alt="Techmatic AI Logo" class="nav-logo">
@@ -67,27 +27,48 @@
         </ul>
     </nav>
 
-    <!-- --- 4. LEGAL TEXT CONTENT --- -->
+    <!-- --- INSTRUCTIONS TEXT CONTENT --- -->
     <div class="legal-content">
         <h1>User Instructions</h1>
-        <p><strong>Last Updated:</strong> September 15, 2026</p>
         
-        <p>Welcome to The Missing Word. Techmatic AI is committed to protecting your privacy. This policy outlines how we handle your data when you use our Android application.</p>
-
-        <h2>1. Information We Collect</h2>
-        <p>To provide secure user profiles and save your game progression, we collect account credentials via Firebase authentication. This includes the email address you provide upon registration.</p>
-
-        <h2>2. How We Use Your Data</h2>
-        <p>Your data is used strictly to manage your account, secure your gameplay data, and administer the prize pack system. We do not sell your personal data to third parties.</p>
-
-        <h2>3. Third-Party Services</h2>
-        <p>The app utilizes third-party services that may collect information used to identify you. Specifically, we use Google Play Services and Firebase for backend authentication and database infrastructure.</p>
+        <p>The app consists of Game Packs where each pack contains word puzzles with 3 words. The objective of the game is to find the fourth word which is related, or linked to the three. For example:</p>
         
-        <h2>4. Data Deletion</h2>
-        <p>You have the right to request the deletion of your account and associated game data at any time. To request data deletion, please contact us at the email below.</p>
+        <!-- Example Box -->
+        <div style="border: 1px solid #cbd5e1; padding: 1.5rem; text-align: center; margin: 2rem auto; max-width: 450px; font-weight: bold; letter-spacing: 1px;">
+            CHESTNUTS * DINNER * POTATOES* (5)
+        </div>
 
-        <h2>5. Contact Us</h2>
-        <p>If you have any questions about this Privacy Policy, please contact us at: <a href="mailto:chrisholt133@gmail.com">chrisholt133@gmail.com</a>.</p>
+        <p>The answer is <span style="color: #4ade80; font-weight: bold;">ROAST</span> and the number next to it indicates the number of letters required. If you type the wrong word 3 times, the app then gives the hint which letter the word starts with. Once you solve all the puzzles in a pack, a Victory Badge pops up. You do not need to complete a Pack to play the next one. Play any Pack at any time regardless of where you are with the current one.</p>
+
+        <p>The app has two types of Game Packs:</p>
+
+        <ol style="padding-left: 1.5rem;">
+            <li style="margin-bottom: 1rem;"><strong>Themed</strong>, e.g. FOOD, NATURE, SCIENCE, MUSIC.<br>
+            Click on any of them to start playing immediately. These packs are fairly easy and designed to train the brain without too much strain.</li>
+            
+            <li style="margin-bottom: 1rem;"><strong>Prize Packs</strong> where you have a chance of winning £100 upon solving all the puzzles in a pack. These packs are more difficult to play, but very rewarding for the satisfaction of finding the correct words. The objective is the same for all the puzzles: Find the missing word.</li>
+        </ol>
+
+        <!-- Warning Section -->
+        <div style="margin: 3rem 0;">
+            <strong style="color: #f87171; font-size: 1.25rem;">IMPORTANT!</strong><br>
+            <p style="padding: 0; margin-top: 0.5rem;">Please read our Terms and Conditions and the Privacy Policy. You can read them on our website: <a href="https://techmatic.ai/the-missing-word.html">https://techmatic.ai/the-missing-word.html</a> but you must tick the boxes to confirm that you have read them in the app.</p>
+        </div>
+
+        <h2>To play the Prize Packs:</h2>
+        
+        <ol style="padding-left: 1.5rem;">
+            <li style="margin-bottom: 0.5rem;">Click on one of them and register with your email address and password.</li>
+            <li style="margin-bottom: 0.5rem;">The app will prompt you to enter your Date of Birth to confirm that you are 18 years old or over. <strong style="color: #f87171; font-weight: normal;">This is because a monetary reward is involved in the game.</strong></li>
+            <li style="margin-bottom: 0.5rem;">Navigate to Terms & Conditions (T&C) and Privacy Policy and tick the confirmation boxes.</li>
+            <li style="margin-bottom: 0.5rem;">Return to the main screen and start playing.</li>
+        </ol>
+
+        <!-- Cursive Sign-off -->
+        <div style="font-family: 'Brush Script MT', 'Lucida Handwriting', cursive; font-size: 1.8rem; margin-top: 4rem; line-height: 1.2;">
+            Enjoy the game.<br>
+            Techmatic Team
+        </div>
     </div>
 </body>
 </html>
