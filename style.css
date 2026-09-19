@@ -44,11 +44,17 @@ button:hover { background: #818cf8; }
 /* --- 4. HOMEPAGE & INTERACTIVE APP STYLES --- */
 
 /* Subtle dot grid background for the main content area */
-.hero-section {
-    background-image: radial-gradient(#334155 1px, transparent 1px);
-    background-size: 20px 20px;
+.hero-video {
     width: 100%;
-    padding-bottom: 4rem;
+    max-width: 750px;
+    aspect-ratio: 16 / 10; /* Creates a slightly tighter box to crop the sides */
+    object-fit: cover; /* Forces the video to fill the box, hiding the black bars */
+    border-radius: 10px;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+    border: 1px solid #334155;
+    margin: 1.5rem auto 3rem auto;
+    display: block;
+    background-color: transparent;
 }
 
 .hero-video {
