@@ -38,178 +38,188 @@
     </div>
 
     <!-- INTERACTIVE TRADING PLANNER -->
-    <div class="app-container">
+<div class="app-container">
+    
+    <!-- LEFT: Terminal Input Form -->
+    <div class="terminal-card">
+        <div class="terminal-header">MACHINE-GRADE TRADING PLANNER GENERATOR</div>
         
-        <!-- LEFT: Terminal Input Form -->
-        <div class="terminal-card">
-            <div class="terminal-header">MACHINE-GRADE TRADING PLANNER GENERATOR</div>
-            
-            <div class="terminal-group">
-                <label>Enter Asset Ticker:</label>
-                <input type="text" id="in-ticker" value="MKS" oninput="calculateTrade()">
-            </div>
-            <div class="terminal-group">
-                <label>Enter Direction (BUY/SELL):</label>
-                <select id="in-direction" onchange="calculateTrade()" style="width: 100px;">
-                    <option value="BUY">BUY</option>
-                    <option value="SELL">SELL</option>
-                </select>
-            </div>
-            <div class="terminal-group">
-                <label>Enter Current Spot Price:</label>
-                <input type="number" id="in-spot" value="3.71" step="0.01" oninput="calculateTrade()">
-            </div>
-            <div class="terminal-group">
-                <label>Enter Current Timeframe RSI:</label>
-                <input type="number" id="in-rsi" value="53" oninput="calculateTrade()">
-            </div>
-            <div class="terminal-group">
-                <label>Enter Calculated Entry Limit:</label>
-                <input type="number" id="in-entry" value="3.65" step="0.01" oninput="calculateTrade()">
-            </div>
-            <div class="terminal-group">
-                <label>Enter Invalidation Point (Stop Loss):</label>
-                <input type="number" id="in-stop" value="3.35" step="0.01" oninput="calculateTrade()">
-            </div>
-            <div class="terminal-group">
-                <label>Enter Target Point (Take Profit):</label>
-                <input type="number" id="in-target" value="3.95" step="0.01" oninput="calculateTrade()">
-            </div>
-            <div class="terminal-group">
-                <label>Enter Max Account Risk (£):</label>
-                <input type="number" id="in-risk" value="100" oninput="calculateTrade()">
-            </div>
-            <div class="terminal-group">
-                <label>Enter FX Rate (Asset to GBP):</label>
-                <input type="number" id="in-fx" value="1.0" step="0.01" oninput="calculateTrade()">
-            </div>
-            
-            <div id="logic-gate-msg" style="margin-top: 1.5rem; color: #10b981; font-size: 0.9rem; text-align: center;">
-                [PASSED] Risk architecture matches institutional compliance thresholds.
-            </div>
+        <div class="terminal-group">
+            <label>Enter Asset Ticker:</label>
+            <!-- Removed oninput triggers -->
+            <input type="text" id="in-ticker" value="MKS">
         </div>
-
-        <!-- RIGHT: Output Report Card -->
-        <div class="report-card">
-            <div class="report-header">
-                &#129302;: Algorithmic Order Execution Report
-            </div>
-            
-            <div class="report-row bg-gray-light" style="color: #6b7280; font-size: 0.85rem; padding-top: 0.5rem; padding-bottom: 0.5rem;">
-                <span>Metric Parameter</span>
-                <span>Value Coordinate</span>
-            </div>
-
-            <div class="report-row">
-                <span class="report-label">Timestamp</span>
-                <span class="report-value" id="out-time" style="font-family: monospace; color: #6b7280;"></span>
-            </div>
-            <div class="report-row">
-                <span class="report-label">Asset Ticker</span>
-                <span class="report-value" id="out-ticker">MKS</span>
-            </div>
-            <div class="report-row">
-                <span class="report-label">Execution Order</span>
-                <span class="report-value text-green" id="out-dir">BUY</span>
-            </div>
-            <div class="report-row">
-                <span class="report-label">Spot / RSI</span>
-                <span class="report-value" id="out-spot-rsi">$3.71 / 53 RSI</span>
-            </div>
-            <div class="report-row bg-gray-light">
-                <span class="report-label text-blue">Entry Limit Net</span>
-                <span class="report-value text-blue" id="out-entry">$3.65</span>
-            </div>
-            <div class="report-row">
-                <span class="report-label">Stop Loss (Invalidation)</span>
-                <span class="report-value text-red" id="out-stop">$3.35</span>
-            </div>
-            <div class="report-row">
-                <span class="report-label">Take Profit (Target)</span>
-                <span class="report-value text-green" id="out-target">$3.95</span>
-            </div>
-            <div class="report-row bg-green-light" id="row-rr">
-                <span class="report-label text-green">Risk-to-Reward Profile</span>
-                <span class="report-value text-green" id="out-rr">1:2.0 R:R</span>
-            </div>
-            <div class="report-row">
-                <span class="report-label">Allocated Risk Ceiling</span>
-                <span class="report-value" id="out-risk">£100.00</span>
-            </div>
-            <div class="report-row">
-                <span class="report-label">Position Sizing units</span>
-                <span class="report-value" id="out-shares">666 Shares</span>
-            </div>
-            <div class="report-row bg-gray-light" style="border-bottom: none;">
-                <span class="report-label">Total Asset Exposure</span>
-                <span class="report-value" id="out-exposure">$2430.90</span>
-            </div>
+        <div class="terminal-group">
+            <label>Enter Direction (BUY/SELL):</label>
+            <select id="in-direction" style="width: 100px;">
+                <option value="BUY">BUY</option>
+                <option value="SELL">SELL</option>
+            </select>
         </div>
+        <div class="terminal-group">
+            <label>Enter Current Spot Price:</label>
+            <input type="number" id="in-spot" value="3.71" step="0.01">
+        </div>
+        <div class="terminal-group">
+            <label>Enter Current Timeframe RSI:</label>
+            <input type="number" id="in-rsi" value="53">
+        </div>
+        <div class="terminal-group">
+            <label>Enter Calculated Entry Limit:</label>
+            <input type="number" id="in-entry" value="3.65" step="0.01">
+        </div>
+        <div class="terminal-group">
+            <label>Enter Invalidation Point (Stop Loss):</label>
+            <input type="number" id="in-stop" value="3.35" step="0.01">
+        </div>
+        <div class="terminal-group">
+            <label>Enter Target Point (Take Profit):</label>
+            <input type="number" id="in-target" value="3.95" step="0.01">
+        </div>
+        <div class="terminal-group">
+            <label>Enter Max Account Risk (£):</label>
+            <input type="number" id="in-risk" value="100">
+        </div>
+        <div class="terminal-group">
+            <label>Enter FX Rate (Asset to GBP):</label>
+            <input type="number" id="in-fx" value="1.0" step="0.01">
+        </div>
+        
+        <!-- New Execute Button -->
+        <button onclick="calculateTrade()" style="width: 100%; padding: 0.75rem; margin-top: 1rem; background-color: transparent; border: 1px dashed #38bdf8; color: #38bdf8; font-family: inherit; font-size: 1rem; font-weight: bold; cursor: pointer; transition: background 0.2s;">
+            [ EXECUTE ALGORITHM ]
+        </button>
 
+        <div id="logic-gate-msg" style="margin-top: 1.5rem; color: #6b7280; font-size: 0.9rem; text-align: center;">
+            Awaiting execution command...
+        </div>
     </div>
+
+    <!-- RIGHT: Output Report Card (Starts Empty) -->
+    <div class="report-card">
+        <div class="report-header">
+            &#129302; Algorithmic Order Execution Report
+        </div>
+        
+        <div class="report-row bg-gray-light" style="color: #6b7280; font-size: 0.85rem; padding-top: 0.5rem; padding-bottom: 0.5rem;">
+            <span>Metric Parameter</span>
+            <span>Value Coordinate</span>
+        </div>
+
+        <div class="report-row">
+            <span class="report-label">Timestamp</span>
+            <span class="report-value" id="out-time" style="font-family: monospace; color: #6b7280;">--</span>
+        </div>
+        <div class="report-row">
+            <span class="report-label">Asset Ticker</span>
+            <span class="report-value" id="out-ticker">--</span>
+        </div>
+        <div class="report-row">
+            <span class="report-label">Execution Order</span>
+            <span class="report-value" id="out-dir">--</span>
+        </div>
+        <div class="report-row">
+            <span class="report-label">Spot / RSI</span>
+            <span class="report-value" id="out-spot-rsi">--</span>
+        </div>
+        <div class="report-row bg-gray-light">
+            <span class="report-label text-blue">Entry Limit Net</span>
+            <span class="report-value text-blue" id="out-entry">--</span>
+        </div>
+        <div class="report-row">
+            <span class="report-label">Stop Loss (Invalidation)</span>
+            <span class="report-value text-red" id="out-stop">--</span>
+        </div>
+        <div class="report-row">
+            <span class="report-label">Take Profit (Target)</span>
+            <span class="report-value text-green" id="out-target">--</span>
+        </div>
+        <div class="report-row" id="row-rr">
+            <span class="report-label" id="label-rr">Risk-to-Reward Profile</span>
+            <span class="report-value" id="out-rr">--</span>
+        </div>
+        <div class="report-row">
+            <span class="report-label">Allocated Risk Ceiling</span>
+            <span class="report-value" id="out-risk">--</span>
+        </div>
+        <div class="report-row">
+            <span class="report-label">Position Sizing units</span>
+            <span class="report-value" id="out-shares">--</span>
+        </div>
+        <div class="report-row bg-gray-light" style="border-bottom: none;">
+            <span class="report-label">Total Asset Exposure</span>
+            <span class="report-value" id="out-exposure">--</span>
+        </div>
+    </div>
+
+</div>
 </div>
 
-<!-- JAVASCRIPT: Python logic translated for the browser -->
+<!-- JAVASCRIPT -->
 <script>
-    function calculateTrade() {
-        // 1. Gather Inputs
-        const ticker = document.getElementById('in-ticker').value.toUpperCase();
-        const direction = document.getElementById('in-direction').value;
-        const spot = parseFloat(document.getElementById('in-spot').value) || 0;
-        const rsi = document.getElementById('in-rsi').value || 0;
-        const entry = parseFloat(document.getElementById('in-entry').value) || 0;
-        const stop = parseFloat(document.getElementById('in-stop').value) || 0;
-        const target = parseFloat(document.getElementById('in-target').value) || 0;
-        const maxRisk = parseFloat(document.getElementById('in-risk').value) || 0;
-        const fx = parseFloat(document.getElementById('in-fx').value) || 1;
+function clearReport() {
+    document.getElementById('out-time').innerText = "--";
+    document.getElementById('out-ticker').innerText = "--";
+    document.getElementById('out-dir').innerText = "--";
+    document.getElementById('out-dir').className = "report-value";
+    document.getElementById('out-spot-rsi').innerText = "--";
+    document.getElementById('out-entry').innerText = "--";
+    document.getElementById('out-stop').innerText = "--";
+    document.getElementById('out-target').innerText = "--";
+    document.getElementById('out-rr').innerText = "--";
+    document.getElementById('out-rr').className = "report-value";
+    document.getElementById('label-rr').className = "report-label";
+    document.getElementById('out-risk').innerText = "--";
+    document.getElementById('out-shares').innerText = "--";
+    document.getElementById('out-exposure').innerText = "--";
+    document.getElementById('row-rr').className = "report-row";
+}
 
-        // 2. Risk Architecture Math
-        let riskWindow = 0;
-        let rewardWindow = 0;
+function calculateTrade() {
+    const ticker = document.getElementById('in-ticker').value.toUpperCase();
+    const direction = document.getElementById('in-direction').value;
+    const spot = parseFloat(document.getElementById('in-spot').value) || 0;
+    const rsi = document.getElementById('in-rsi').value || 0;
+    const entry = parseFloat(document.getElementById('in-entry').value) || 0;
+    const stop = parseFloat(document.getElementById('in-stop').value) || 0;
+    const target = parseFloat(document.getElementById('in-target').value) || 0;
+    const maxRisk = parseFloat(document.getElementById('in-risk').value) || 0;
+    const fx = parseFloat(document.getElementById('in-fx').value) || 1;
 
-        if (direction === "BUY") {
-            riskWindow = entry - stop;
-            rewardWindow = target - entry;
+    let riskWindow = 0;
+    let rewardWindow = 0;
+
+    if (direction === "BUY") {
+        riskWindow = entry - stop;
+        rewardWindow = target - entry;
+    } else {
+        riskWindow = stop - entry;
+        rewardWindow = entry - target;
+    }
+
+    const logicGate = document.getElementById('logic-gate-msg');
+    
+    if (riskWindow > 0 && rewardWindow > 0) {
+        const rr = rewardWindow / riskWindow;
+        
+        // GATEKEEPER LOGIC
+        if (rr < 2.0) {
+            // If it fails, show termination and wipe the report
+            logicGate.innerHTML = `[TERMINATED] R:R ratio (1:${rr.toFixed(2)}) is below the required 1:2 threshold.`;
+            logicGate.style.color = "#ef4444"; 
+            clearReport();
+            return; // Stop function execution here
         } else {
-            riskWindow = stop - entry;
-            rewardWindow = entry - target;
+            // If it passes, show success and continue to report generation
+            logicGate.innerHTML = "[PASSED] Risk architecture matches institutional compliance thresholds.";
+            logicGate.style.color = "#10b981"; 
         }
 
-        // Default outputs for invalid geometry
-        let rr = 0;
-        let shares = 0;
-        let exposure = 0;
+        const riskPerShareGBP = riskWindow * fx;
+        const shares = Math.floor(maxRisk / riskPerShareGBP);
+        const exposure = shares * entry;
 
-        const logicGate = document.getElementById('logic-gate-msg');
-        const rowRR = document.getElementById('row-rr');
-        const outRR = document.getElementById('out-rr');
-
-        if (riskWindow > 0 && rewardWindow > 0) {
-            rr = rewardWindow / riskWindow;
-            const riskPerShareGBP = riskWindow * fx;
-            shares = Math.floor(maxRisk / riskPerShareGBP);
-            exposure = shares * entry;
-
-            // 3. Logic Gate Verification
-            if (rr < 2.0) {
-                logicGate.innerHTML = `[TERMINATED] R:R ratio (1:${rr.toFixed(2)}) is below the required 1:2 threshold.`;
-                logicGate.style.color = "#ef4444"; // Red
-                rowRR.style.backgroundColor = "#fef2f2"; // Light red bg
-                outRR.className = "report-value text-red";
-                outRR.previousElementSibling.className = "report-label text-red";
-            } else {
-                logicGate.innerHTML = "[PASSED] Risk architecture matches institutional compliance thresholds.";
-                logicGate.style.color = "#10b981"; // Green
-                rowRR.style.backgroundColor = "#ecfdf5"; // Light green bg
-                outRR.className = "report-value text-green";
-                outRR.previousElementSibling.className = "report-label text-green";
-            }
-        } else {
-            logicGate.innerHTML = "[ERROR] Invalid math coordinates. Check Stop Loss and Take Profit layout.";
-            logicGate.style.color = "#ef4444";
-        }
-
-        // 4. Update Report DOM
+        // Update Report DOM
         const now = new Date();
         document.getElementById('out-time').innerText = now.toISOString().slice(0, 19).replace('T', ' ');
         document.getElementById('out-ticker').innerText = ticker;
@@ -223,14 +233,22 @@
         document.getElementById('out-stop').innerText = `$${stop.toFixed(2)}`;
         document.getElementById('out-target').innerText = `$${target.toFixed(2)}`;
         
-        outRR.innerText = riskWindow > 0 ? `1:${rr.toFixed(1)} R:R` : "N/A";
+        const outRR = document.getElementById('out-rr');
+        outRR.innerText = `1:${rr.toFixed(1)} R:R`;
+        outRR.className = "report-value text-green";
+        document.getElementById('label-rr').className = "report-label text-green";
+        document.getElementById('row-rr').className = "report-row bg-green-light";
+
         document.getElementById('out-risk').innerText = `£${maxRisk.toFixed(2)}`;
         document.getElementById('out-shares').innerText = `${shares} Shares`;
         document.getElementById('out-exposure').innerText = `$${exposure.toFixed(2)}`;
+        
+    } else {
+        logicGate.innerHTML = "[ERROR] Invalid math coordinates. Check Stop Loss and Take Profit layout.";
+        logicGate.style.color = "#ef4444";
+        clearReport();
     }
-
-    // Run once on load to populate the timestamp
-    window.onload = calculateTrade;
+}
 </script>
 </body>
 </html>
