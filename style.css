@@ -53,9 +53,7 @@ button:hover { background: #818cf8; }
 /* Subtle dot grid background for the main content area */
 .hero-video {
     width: 100%;
-    max-width: 750px;
-    aspect-ratio: 16 / 10; /* Creates a slightly tighter box to crop the sides */
-    object-fit: cover; /* Forces the video to fill the box, hiding the black bars */
+    height: auto;
     border-radius: 10px;
     box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
     border: 1px solid #334155;
