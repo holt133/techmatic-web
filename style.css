@@ -97,7 +97,7 @@ button:hover { background: #818cf8; }
     border-radius: 8px;
     padding: 1.5rem;
     width: 48%;
-    max-width: 300px;
+    max-width: 400px;
     font-family: 'Courier New', Courier, monospace;
     color: #d1d5db;
     border: 1px solid #333;
@@ -140,7 +140,7 @@ button:hover { background: #818cf8; }
     border-radius: 12px;
     padding: 2rem;
     width: 48%;
-    max-width: 200px;
+    max-width: 350px;
     color: #1f2937;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     font-family: system-ui, -apple-system, sans-serif;
