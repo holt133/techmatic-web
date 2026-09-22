@@ -65,7 +65,7 @@ button:hover { background: #818cf8; }
 .full-size-btn {
   display: block;
   width: max-content;
-  margin: 1rem auto 0 auto; /* Creates space above the button and centers it */
+  margin: 1rem auto 2 auto; /* Creates space above the button and centers it */
   padding: 0.5rem 2rem;
   background-color: #f57c00; /* Orange background */
   color: #ffffff;
