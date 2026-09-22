@@ -43,6 +43,13 @@ button:hover { background: #818cf8; }
 
 /* --- 4. HOMEPAGE & INTERACTIVE APP STYLES --- */
 
+.video-wrapper {
+  max-width: 60%; /* Adjust this percentage to easily change the video footprint */
+  margin: 0 auto; 
+  border-radius: 12px;
+  overflow: hidden;
+}
+
 /* Subtle dot grid background for the main content area */
 .hero-video {
     width: 100%;
@@ -55,15 +62,6 @@ button:hover { background: #818cf8; }
     margin: 1.5rem auto 3rem auto;
     display: block;
     background-color: transparent;
-}
-
-.hero-video {
-    width: 100%;
-    max-width: 1000px;
-    border-radius: 12px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    border: 1px solid #334155;
-    margin: 2rem 0 4rem 0;
 }
 
 .app-container {
