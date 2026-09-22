@@ -140,7 +140,7 @@ button:hover { background: #818cf8; }
     border-radius: 12px;
     padding: 3rem;
     width: 48%;
-    max-width: 380px;
+    max-width: 360px;
     color: #1f2937;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     font-family: system-ui, -apple-system, sans-serif;
