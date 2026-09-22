@@ -34,7 +34,8 @@
         
         <!-- Update the src to your actual video URL once uploaded to your server -->
         <div class="video-wrapper">
-  <video src="https://images.techmatic.ai/ms_diary.mp4" autoplay loop muted playsinline class="hero-video">
+  <video id="workflow-video" src="https://images.techmatic.ai/ms_diary.mp4" autoplay loop muted playsinline class="hero-video"></video>
+  <button id="fullscreen-btn" class="full-size-btn">Play full size video</button>
 </div>
 
     <!-- INTERACTIVE TRADING PLANNER -->
@@ -249,6 +250,18 @@ function calculateTrade() {
         clearReport();
     }
 }
+</script>
+<script>
+  const video = document.getElementById('workflow-video');
+  const btn = document.getElementById('fullscreen-btn');
+
+  btn.addEventListener('click', () => {
+    if (video.requestFullscreen) {
+      video.requestFullscreen(); // Standard web browsers
+    } else if (video.webkitEnterFullscreen) {
+      video.webkitEnterFullscreen(); // iOS Safari fallback
+    }
+  });
 </script>
 </body>
 </html>
