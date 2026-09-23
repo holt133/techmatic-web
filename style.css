@@ -54,8 +54,8 @@ button:hover { background: #818cf8; }
 
 /* App Showcase */
 .app-header { margin-bottom: 3rem; }
-.feature-grid { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; max-width: 900px; margin-top: 0; }
-.feature-card { background-color: #1e293b; border: 1px solid #334155; border-radius: 1rem; padding: 2rem; width: 250px; text-align: left; }
+.feature-grid { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; max-width: 900px; margin-top: 2rem; }
+.feature-card { background-color: #1e293b; border: 1px solid #334155; border-radius: 1rem; padding: 0; width: 250px; text-align: left; }
 .feature-card h3 { color: #38bdf8; margin-top: 0; }
 .feature-card p { font-size: 1rem; padding: 0; margin: 0; }
 
