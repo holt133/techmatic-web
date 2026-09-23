@@ -25,7 +25,7 @@ body.legal-page {
 }
 
 /* --- 2. NAVBAR STYLES --- */
-.navbar { display: flex; justify-content: space-between; align-items: center; padding: 0 3%; background-color: #0f172a; border-bottom: 1px solid #334155; }
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2%; background-color: #0f172a; border-bottom: 1px solid #334155; }
 .nav-logo { height: 55px; width: auto; display: block; }
 .nav-links { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; align-items: center; }
 .nav-links a { color: #f8fafc; text-decoration: none; font-weight: 500; font-size: 1rem; transition: color 0.2s ease; padding: 1.5rem 0; }
