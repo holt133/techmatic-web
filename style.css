@@ -185,7 +185,7 @@ button:hover { background: #818cf8; }
 }
 .site-footer {
   text-align: center;
-  padding: 2rem 0 1rem 0;
+  padding: 4rem 0 1rem 0;
   margin-top: 4rem; /* Adds space between the planner and the dividing line */
 }
 
@@ -200,5 +200,5 @@ button:hover { background: #818cf8; }
 .site-footer p {
   color: #94a3b8; /* A muted grey that looks good on dark backgrounds */
   font-size: 0.9rem;
-  margin: 2rem;
+  margin: 0;
 }
