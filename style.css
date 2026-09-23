@@ -200,5 +200,5 @@ button:hover { background: #818cf8; }
 .site-footer p {
   color: #94a3b8; /* A muted grey that looks good on dark backgrounds */
   font-size: 0.9rem;
-  margin: 0;
+  margin: 2rem;
 }
