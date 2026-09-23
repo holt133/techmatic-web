@@ -186,7 +186,7 @@ button:hover { background: #818cf8; }
 .site-footer {
   text-align: center;
   padding: 2rem 0 1rem 12rem;
-  margin-top: 4rem; /* Adds space between the planner and the dividing line */
+  margin-top: 2rem; /* Adds space between the planner and the dividing line */
 }
 
 .footer-divider {
