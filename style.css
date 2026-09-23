@@ -1,5 +1,20 @@
 /* --- 1. BASE STYLES --- */
-body { font-family: system-ui, -apple-system, sans-serif; background-color: #0f172a; color: #f8fafc; margin: 0; text-align: center; }
+body { 
+    font-family: system-ui, -apple-system, sans-serif; 
+    background-color: #0b1120; 
+    color: #f8fafc; 
+    margin: 0; 
+    
+    /* Re-add the text-align rule that was cut off in your screenshot here */
+    
+    /* 3D AI Background Effect */
+    background-image: 
+        linear-gradient(rgba(11, 17, 32, 0.4), rgba(11, 17, 32, 0.8)), 
+        url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2000&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+}
 .main-content { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: calc(100vh - 80px); padding: 1rem 1rem; box-sizing: border-box; }
 h1 { font-size: 3.5rem; margin-bottom: 0.5rem; background: linear-gradient(to right, #38bdf8, #818cf8); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 p { font-size: 1.25rem; color: #94a3b8; max-width: 1000px; line-height: 1.6; padding: 0 1.5rem; }
