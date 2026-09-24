@@ -224,7 +224,7 @@ button:hover { background: #818cf8; }
   height: 1px;
   background-color: #334155; /* A subtle dark gray that matches your existing borders */
   width: 100%;
-  margin: 0 auto 0 auto; /* Creates a small gap between the line and the text */
+  margin: 0 auto 1rem auto; /* Creates a small gap between the line and the text */
 }
 
 .planner-intro p {
