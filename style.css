@@ -12,7 +12,7 @@ h1 { font-size: 3.5rem; margin-bottom: 0.5rem; background: linear-gradient(to ri
 p { font-size: 1.25rem; color: #94a3b8; max-width: 1000px; line-height: 1.6; padding: 0 1.5rem; }
 
 /* --- 2. NAVBAR STYLES --- */
-.navbar { display: flex; justify-content: space-between; align-items: center; padding: 2rem 5%; background-color: #0f172a; border-bottom: 1px solid #334155; }
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 5%; background-color: #0f172a; border-bottom: 1px solid #334155; }
 .nav-logo { height: 45px; width: auto; display: block; }
 .nav-links { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; align-items: center; }
 
