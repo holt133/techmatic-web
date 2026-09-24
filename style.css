@@ -211,3 +211,24 @@ button:hover { background: #818cf8; }
   font-size: 0.9rem;
   margin: 0;
 }
+
+.planner-intro {
+  max-width: 1200px; /* Aligns with the width of your main planner container */
+  margin: 1.5rem auto 2rem auto; /* 1.5rem space below the video button, 2rem space above the planner */
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.subtle-divider {
+  border: 0;
+  height: 1px;
+  background-color: #334155; /* A subtle dark gray that matches your existing borders */
+  width: 100%;
+  margin: 0 auto 1rem auto; /* Creates a small gap between the line and the text */
+}
+
+.planner-intro p {
+  color: #94a3b8; /* Muted gray text so it remains professional and unobtrusive */
+  font-size: 0.95rem;
+  margin: 0;
+}
