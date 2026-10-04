@@ -165,98 +165,108 @@
 </footer>
 <!-- JAVASCRIPT -->
 <script>
-function clearReport() {
-    document.getElementById('out-time').innerText = "--";
-    document.getElementById('out-ticker').innerText = "--";
-    document.getElementById('out-dir').innerText = "--";
-    document.getElementById('out-dir').className = "report-value";
-    document.getElementById('out-spot-rsi').innerText = "--";
-    document.getElementById('out-entry').innerText = "--";
-    document.getElementById('out-stop').innerText = "--";
-    document.getElementById('out-target').innerText = "--";
-    document.getElementById('out-rr').innerText = "--";
-    document.getElementById('out-rr').className = "report-value";
-    document.getElementById('label-rr').className = "report-label";
-    document.getElementById('out-risk').innerText = "--";
-    document.getElementById('out-shares').innerText = "--";
-    document.getElementById('out-exposure').innerText = "--";
-    document.getElementById('row-rr').className = "report-row";
-}
+    // Define your production n8n webhook URL
+    const N8N_WEBHOOK_URL = "https://n8n.techmatic.ai/webhook/trading-generator-view-counter";
 
-function calculateTrade() {
-    const ticker = document.getElementById('in-ticker').value.toUpperCase();
-    const direction = document.getElementById('in-direction').value;
-    const spot = parseFloat(document.getElementById('in-spot').value) || 0;
-    const rsi = document.getElementById('in-rsi').value || 0;
-    const entry = parseFloat(document.getElementById('in-entry').value) || 0;
-    const stop = parseFloat(document.getElementById('in-stop').value) || 0;
-    const target = parseFloat(document.getElementById('in-target').value) || 0;
-    const maxRisk = parseFloat(document.getElementById('in-risk').value) || 0;
-    const fx = parseFloat(document.getElementById('in-fx').value) || 1;
-
-    let riskWindow = 0;
-    let rewardWindow = 0;
-
-    if (direction === "BUY") {
-        riskWindow = entry - stop;
-        rewardWindow = target - entry;
-    } else {
-        riskWindow = stop - entry;
-        rewardWindow = entry - target;
+    function clearReport() {
+        document.getElementById('out-time').innerText = "--";
+        document.getElementById('out-ticker').innerText = "--";
+        document.getElementById('out-dir').innerText = "--";
+        document.getElementById('out-dir').className = "report-value";
+        document.getElementById('out-spot-rsi').innerText = "--";
+        document.getElementById('out-entry').innerText = "--";
+        document.getElementById('out-stop').innerText = "--";
+        document.getElementById('out-target').innerText = "--";
+        document.getElementById('out-rr').innerText = "--";
+        document.getElementById('out-rr').className = "report-value";
+        document.getElementById('label-rr').className = "report-label";
+        document.getElementById('out-risk').innerText = "--";
+        document.getElementById('out-shares').innerText = "--";
+        document.getElementById('out-exposure').innerText = "--";
+        document.getElementById('row-rr').className = "report-row";
     }
 
-    const logicGate = document.getElementById('logic-gate-msg');
-    
-    if (riskWindow > 0 && rewardWindow > 0) {
-        const rr = rewardWindow / riskWindow;
-        
-        // GATEKEEPER LOGIC
-        if (rr < 2.0) {
-            // If it fails, show termination and wipe the report
-            logicGate.innerHTML = `[TERMINATED] R:R ratio (1:${rr.toFixed(2)}) is below the required 1:2 threshold.`;
-            logicGate.style.color = "#ef4444"; 
-            clearReport();
-            return; // Stop function execution here
+    function calculateTrade() {
+        const ticker = document.getElementById('in-ticker').value.toUpperCase();
+        const direction = document.getElementById('in-direction').value;
+        const spot = parseFloat(document.getElementById('in-spot').value) || 0;
+        const rsi = document.getElementById('in-rsi').value || 0;
+        const entry = parseFloat(document.getElementById('in-entry').value) || 0;
+        const stop = parseFloat(document.getElementById('in-stop').value) || 0;
+        const target = parseFloat(document.getElementById('in-target').value) || 0;
+        const maxRisk = parseFloat(document.getElementById('in-risk').value) || 0;
+        const fx = parseFloat(document.getElementById('in-fx').value) || 1;
+
+        let riskWindow = 0;
+        let rewardWindow = 0;
+
+        if (direction === "BUY") {
+            riskWindow = entry - stop;
+            rewardWindow = target - entry;
         } else {
-            // If it passes, show success and continue to report generation
-            logicGate.innerHTML = "[PASSED] Risk architecture matches institutional compliance thresholds.";
-            logicGate.style.color = "#10b981"; 
+            riskWindow = stop - entry;
+            rewardWindow = entry - target;
         }
 
-        const riskPerShareGBP = riskWindow * fx;
-        const shares = Math.floor(maxRisk / riskPerShareGBP);
-        const exposure = shares * entry;
-
-        // Update Report DOM
-        const now = new Date();
-        document.getElementById('out-time').innerText = now.toISOString().slice(0, 19).replace('T', ' ');
-        document.getElementById('out-ticker').innerText = ticker;
+        const logicGate = document.getElementById('logic-gate-msg');
         
-        const dirEl = document.getElementById('out-dir');
-        dirEl.innerText = direction;
-        dirEl.className = direction === 'BUY' ? "report-value text-green" : "report-value text-red";
+        if (riskWindow > 0 && rewardWindow > 0) {
+            const rr = rewardWindow / riskWindow;
+            
+            // GATEKEEPER LOGIC
+            if (rr < 2.0) {
+                logicGate.innerHTML = `[TERMINATED] R:R ratio (1:${rr.toFixed(2)}) is below the required 1:2 threshold.`;
+                logicGate.style.color = "#ef4444"; 
+                clearReport();
+                return; 
+            } else {
+                logicGate.innerHTML = "[PASSED] Risk architecture matches institutional compliance thresholds.";
+                logicGate.style.color = "#10b981"; 
+                
+                // Fire the signal to n8n
+                fetch(N8N_WEBHOOK_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ 
+                        timestamp: new Date().toISOString().slice(0, 19).replace('T', ' ')
+                    })
+                }).catch(err => console.error("Webhook error:", err));
+            }
 
-        document.getElementById('out-spot-rsi').innerText = `$${spot.toFixed(2)} / ${rsi} RSI`;
-        document.getElementById('out-entry').innerText = `$${entry.toFixed(2)}`;
-        document.getElementById('out-stop').innerText = `$${stop.toFixed(2)}`;
-        document.getElementById('out-target').innerText = `$${target.toFixed(2)}`;
-        
-        const outRR = document.getElementById('out-rr');
-        outRR.innerText = `1:${rr.toFixed(1)} R:R`;
-        outRR.className = "report-value text-green";
-        document.getElementById('label-rr').className = "report-label text-green";
-        document.getElementById('row-rr').className = "report-row bg-green-light";
+            const riskPerShareGBP = riskWindow * fx;
+            const shares = Math.floor(maxRisk / riskPerShareGBP);
+            const exposure = shares * entry;
 
-        document.getElementById('out-risk').innerText = `£${maxRisk.toFixed(2)}`;
-        document.getElementById('out-shares').innerText = `${shares} Shares`;
-        document.getElementById('out-exposure').innerText = `$${exposure.toFixed(2)}`;
-        
-    } else {
-        logicGate.innerHTML = "[ERROR] Invalid math coordinates. Check Stop Loss and Take Profit layout.";
-        logicGate.style.color = "#ef4444";
-        clearReport();
+            // Update Report DOM
+            const now = new Date();
+            document.getElementById('out-time').innerText = now.toISOString().slice(0, 19).replace('T', ' ');
+            document.getElementById('out-ticker').innerText = ticker;
+            
+            const dirEl = document.getElementById('out-dir');
+            dirEl.innerText = direction;
+            dirEl.className = direction === 'BUY' ? "report-value text-green" : "report-value text-red";
+
+            document.getElementById('out-spot-rsi').innerText = `$${spot.toFixed(2)} / ${rsi} RSI`;
+            document.getElementById('out-entry').innerText = `$${entry.toFixed(2)}`;
+            document.getElementById('out-stop').innerText = `$${stop.toFixed(2)}`;
+            document.getElementById('out-target').innerText = `$${target.toFixed(2)}`;
+            
+            const outRR = document.getElementById('out-rr');
+            outRR.innerText = `1:${rr.toFixed(1)} R:R`;
+            outRR.className = "report-value text-green";
+            document.getElementById('label-rr').className = "report-label text-green";
+            document.getElementById('row-rr').className = "report-row bg-green-light";
+
+            document.getElementById('out-risk').innerText = `£${maxRisk.toFixed(2)}`;
+            document.getElementById('out-shares').innerText = `${shares} Shares`;
+            document.getElementById('out-exposure').innerText = `$${exposure.toFixed(2)}`;
+            
+        } else {
+            logicGate.innerHTML = "[ERROR] Invalid math coordinates. Check Stop Loss and Take Profit layout.";
+            logicGate.style.color = "#ef4444";
+            clearReport();
+        }
     }
-}
 </script>
 <script>
   const video = document.getElementById('workflow-video');
