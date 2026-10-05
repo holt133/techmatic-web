@@ -212,26 +212,32 @@
         
         if (riskWindow > 0 && rewardWindow > 0) {
             const rr = rewardWindow / riskWindow;
+            let executionStatus = ""; // Variable to hold the result
             
             // GATEKEEPER LOGIC
             if (rr < 2.0) {
                 logicGate.innerHTML = `[TERMINATED] R:R ratio (1:${rr.toFixed(2)}) is below the required 1:2 threshold.`;
                 logicGate.style.color = "#ef4444"; 
+                executionStatus = "TERMINATED";
                 clearReport();
-                return; 
             } else {
                 logicGate.innerHTML = "[PASSED] Risk architecture matches institutional compliance thresholds.";
                 logicGate.style.color = "#10b981"; 
-                
-                // Fire the signal to n8n
-                fetch(N8N_WEBHOOK_URL, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ 
-                        timestamp: new Date().toISOString().slice(0, 19).replace('T', ' ')
-                    })
-                }).catch(err => console.error("Webhook error:", err));
+                executionStatus = "PASSED";
             }
+
+            // Fire the signal to n8n, passing the exact status string
+            fetch(N8N_WEBHOOK_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ 
+                    type: executionStatus,
+                    timestamp: new Date().toISOString().slice(0, 19).replace('T', ' ')
+                })
+            }).catch(err => console.error("Webhook error:", err));
+
+            // Stop the function from drawing the report if it failed
+            if (rr < 2.0) return; 
 
             const riskPerShareGBP = riskWindow * fx;
             const shares = Math.floor(maxRisk / riskPerShareGBP);
