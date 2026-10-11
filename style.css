@@ -47,6 +47,10 @@ button:hover { background: #818cf8; }
     text-align: center; 
     width: 100%;
 }
+.app-header p {
+    text-align: center;
+    margin: 0 auto; 
+}
 
 .app-header h1 {
     font-size: 2.5rem; /* Reduces the size back down for this specific page */
